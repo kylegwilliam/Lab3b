@@ -3,24 +3,26 @@
   <div id="menu">
     <div id="brand">
       <router-link to="/">
-        <img src="/images/logo.png">
+        <img src="/images/Finals.png">
       </router-link>
     </div>
     <div id="side">
       <router-link to="/browse">
-        <div class="menu-item browse">
-          <img src="/images/globe.png">
-          <p>Browse</p>
-        </div>
+
       </router-link>
       <router-link to="/cart">
         <div class="menu-item">
-          <img src="/images/love.png">
-          <p> {{cartSize}} Items</p>
+          <p>Outcome of Game</p>
         </div>
       </router-link>
     </div>
   </div>
+
+  <div>
+  <center>
+  </center>
+  </div>
+
   <router-view />
 </div>
 </template>

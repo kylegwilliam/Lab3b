@@ -1,33 +1,42 @@
 <template>
 <div class="wrapper">
   <div class="products">
-    <div class="product" v-for="product in products" :key="product.id">
+    <div class="players" v-for="player in players" :key="player.id">
       <div class="info">
-        <h1>{{product.name}}</h1>
-        <p>{{product.country}}</p>
+        <h1>{{player.name}}</h1>
+        <p>{{player.country}}</p>
       </div>
       <div class="image">
-        <img :src="'/images/products/'+product.image">
+        <img :src="'/images/products/'+player.image">
       </div>
       <div class="price">
-        <h2>{{product.price}}</h2>
-        <button class="auto" @click= "addToCart(product)">Add to Cart</button>
+        <h2>{{player.price}}</h2>
+        <button class="auto" @click="addToCart(player)">Add to My Team</button>
+
+      </div>
+    </div>
+    <div class="shotdata" v-for="shot in shotdata" :key="shot.id">
+      <div class="info">
+        <h3>{{shot.name}}</h3>
       </div>
     </div>
   </div>
 </div>
 </template>
 
-
 <script>
 export default {
-  name: 'ProductList',
+  name: 'PlayerList',
   props: {
-    products: Array
+    players: Array,
+    shotdata: Array,
   },
   methods: {
-    addToCart(product) {
-      this.$root.$data.cart.push(product)
+    addToCart(player) {
+      this.$root.$data.cart.push(player)
+    },
+    addShotToCart(shot){
+      this.$root.$data.bucket.push(shot)
     }
   }
 }
@@ -58,7 +67,7 @@ export default {
   border: 2px solid #333;
   height: 250px;
   width: 200px;
-  object-fit: cover;
+  object-fit: center;
 }
 
 .product .image {
@@ -68,7 +77,7 @@ export default {
 }
 
 .info {
-  background: #F2921D;
+  background: #4945D6;
   color: #000;
   padding: 10px 30px;
   height: 80px;
@@ -94,7 +103,7 @@ export default {
 
 button {
   height: 50px;
-  background: #000;
+  background: #26661A;
   color: white;
   border: none;
 }
